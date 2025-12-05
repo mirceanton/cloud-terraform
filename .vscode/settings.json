@@ -1,0 +1,14 @@
+{
+  "files.trimTrailingWhitespace": true,
+  "material-icon-theme.folders.associations": {
+    "infrastructure": "environment",
+    "backblaze": "aws",
+    "migadu": "mail",
+    "b2-bucket": "dump",
+    "buckets": "dump",
+    "cloudflare-rule": "rules",
+    "migadu-mailbox": "dist",
+    "personal": "Home",
+    "spam": "trash"
+  },
+}
