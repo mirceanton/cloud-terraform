@@ -1,0 +1,4 @@
+[tools]
+direnv = "latest"
+opentofu = "latest"
+terragrunt = "latest"
