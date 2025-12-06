@@ -31,13 +31,13 @@ resource "cloudflare_dns_record" "standard" {
 resource "cloudflare_dns_record" "srv" {
   for_each = local.srv_records
 
-  zone_id = var.zone_id
-  name    = each.value.name
-  type    = "SRV"
-  ttl     = each.value.ttl
-  comment = each.value.comment
+  zone_id  = var.zone_id
+  name     = each.value.name
+  type     = "SRV"
+  ttl      = each.value.ttl
+  comment  = each.value.comment
   priority = each.value.priority
-  proxied = false
+  proxied  = false
 
   data = {
     priority = each.value.priority
