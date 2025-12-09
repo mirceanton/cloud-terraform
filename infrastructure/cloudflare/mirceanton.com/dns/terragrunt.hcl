@@ -29,6 +29,7 @@ inputs = {
     "ghp_main_a2" = { type = "A", name = "@", value = "185.199.110.153", comment = "Managed by github.com/mirceanton/cloud-terraform | GitHub Pages" },
     "ghp_main_a3" = { type = "A", name = "@", value = "185.199.109.153", comment = "Managed by github.com/mirceanton/cloud-terraform | GitHub Pages" },
     "ghp_main_a4" = { type = "A", name = "@", value = "185.199.108.153", comment = "Managed by github.com/mirceanton/cloud-terraform | GitHub Pages" },
+    "ghp_main_cname" = { type = "CNAME", name = "www", value = "mirceanton.github.io", comment = "Managed by github.com/mirceanton/cloud-terraform | GitHub Pages" },
     "ghp_main_verification" = {
       type    = "TXT"
       name    = "_github-pages-challenge-mirceanton"
