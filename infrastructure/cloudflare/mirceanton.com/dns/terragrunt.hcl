@@ -39,10 +39,7 @@ inputs = {
     # ================================================
     # GitHub Pages -> links page
     # ================================================
-    "ghp_links_a1" = { type = "A", name = "links", value = "185.199.111.153", comment = "Managed by github.com/mirceanton/cloud-terraform | GitHub Pages" },
-    "ghp_links_a2" = { type = "A", name = "links", value = "185.199.110.153", comment = "Managed by github.com/mirceanton/cloud-terraform | GitHub Pages" },
-    "ghp_links_a3" = { type = "A", name = "links", value = "185.199.109.153", comment = "Managed by github.com/mirceanton/cloud-terraform | GitHub Pages" },
-    "ghp_links_a4" = { type = "A", name = "links", value = "185.199.108.153", comment = "Managed by github.com/mirceanton/cloud-terraform | GitHub Pages" },
+    "ghp_links_cname" = { type = "CNAME", name = "links", value = "mirceanton.github.io", comment = "Managed by github.com/mirceanton/cloud-terraform | GitHub Pages" },
     "ghp_links_verification" = {
       type    = "TXT"
       name    = "_github-pages-challenge-links.mirceanton.com"
