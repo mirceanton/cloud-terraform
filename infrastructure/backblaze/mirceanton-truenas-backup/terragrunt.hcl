@@ -20,5 +20,5 @@ inputs = {
       days_from_hiding_to_deleting = 1
     }
   ]
-  app_key_capabilities = include.backblaze.locals.default_app_key_capabilities
+  app_key_capabilities = include.backblaze.locals.full_capabilities
 }
