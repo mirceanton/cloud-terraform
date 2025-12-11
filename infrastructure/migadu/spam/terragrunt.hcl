@@ -7,23 +7,15 @@ include "migadu" {
   expose = true
 }
 
-locals {
-  dir_name = basename(get_terragrunt_dir())
-}
-
 terraform {
   source = find_in_parent_folders("modules/migadu-mailbox")
 }
 
 inputs = {
-  name                    = title(local.dir_name)
-  local_part              = local.dir_name
+  name                    = title(basename(get_terragrunt_dir()))
+  local_part              = basename(get_terragrunt_dir())
   aliases                 = ["junk"]
   may_send                = false
   domain_name             = include.migadu.locals.domain_name
-  password_recovery_email = include.migadu.locals.migadu_api_email
-
-  # API credentials
-  migadu_api_email = include.migadu.locals.migadu_api_email
-  migadu_api_token = include.migadu.locals.migadu_api_token
+  password_recovery_email = include.migadu.locals.recovery_email
 }

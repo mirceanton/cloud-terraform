@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    migadu = {
+      source = "metio/migadu"
+      version = "2025.12.4"
+    }
+  }
+}
+
 resource "migadu_mailbox" "mailbox" {
   name                    = var.name
   domain_name             = var.domain_name

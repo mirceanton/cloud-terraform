@@ -14,11 +14,7 @@ terraform {
 inputs = {
   name                    = title(basename(get_terragrunt_dir()))
   local_part              = "mircea"
-  domain_name             = include.migadu.locals.domain_name
-  password_recovery_email = include.migadu.locals.migadu_api_email
   aliases                 = ["me", "personal", "business", "contact"]
-
-  # API credentials
-  migadu_api_email = include.migadu.locals.migadu_api_email
-  migadu_api_token = include.migadu.locals.migadu_api_token
+  domain_name             = include.migadu.locals.domain_name
+  password_recovery_email = include.migadu.locals.recovery_email
 }

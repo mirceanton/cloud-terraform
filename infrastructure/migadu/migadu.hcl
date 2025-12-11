@@ -1,5 +1,4 @@
 locals {
-  domain_name      = "mirceanton.com"
-  migadu_api_email = get_env("MIGADU_EMAIL")
-  migadu_api_token = get_env("MIGADU_TOKEN")
+  domain_name    = "mirceanton.com"
+  recovery_email = "mircea.pavel.anton@gmail.com"
 }
