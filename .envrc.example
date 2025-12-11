@@ -10,9 +10,19 @@ export GOOGLE_VERIFICATION_PRIMARY=""
 export GOOGLE_VERIFICATION_SECONDARY=""
 export DISCORD_VERIFICATION=""
 
+
+# Migadu API credentials (for Terraform provider)
+export MIGADU_TOKEN=""
+export MIGADU_USERNAME=""
+
 # Cloudflare API Token (for Terraform provider)
 export CLOUDFLARE_EMAIL=""
-export CLOUDFLARE_API_KEY="" #? global api key
+export CLOUDFLARE_API_KEY=""
+
+# B2 API credentials (for Terraform provider)
+export B2_APPLICATION_KEY=""
+export B2_APPLICATION_KEY_ID=""
+
 
 # Backblaze B2 credentials (for state backend)
 export AWS_ACCESS_KEY_ID=""
