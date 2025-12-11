@@ -1,4 +1,5 @@
 [tools]
 direnv = "latest"
 opentofu = "latest"
+"pipx:b2" = "latest"
 terragrunt = "latest"
