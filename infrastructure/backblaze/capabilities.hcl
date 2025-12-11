@@ -23,7 +23,7 @@ locals {
   ]
 
   # Delete capabilities
-  delete_capabilities = [ "deleteFiles" ]
+  delete_capabilities = ["deleteFiles"]
 
   # Bucket/key management capabilities
   management_capabilities = [

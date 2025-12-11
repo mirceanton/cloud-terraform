@@ -2,11 +2,6 @@ include "root" {
   path = find_in_parent_folders("root.hcl")
 }
 
-include "backblaze" {
-  path   = find_in_parent_folders("backblaze.hcl")
-  expose = true
-}
-
 terraform {
   source = "${get_repo_root()}/modules/backblaze-bucket"
 }
@@ -20,5 +15,4 @@ inputs = {
       days_from_hiding_to_deleting = 31
     }
   ]
-  app_key_capabilities = include.backblaze.locals.full_capabilities
 }

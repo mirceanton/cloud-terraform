@@ -9,24 +9,6 @@ variable "bucket_type" {
   default     = "allPrivate"
 }
 
-variable "app_key_name" {
-  description = "Name for the application key (defaults to bucket name)"
-  type        = string
-  default     = null
-}
-
-variable "app_key_capabilities" {
-  description = "Capabilities for the application key"
-  type        = list(string)
-  default = [
-    "listBuckets",
-    "listFiles",
-    "readFiles",
-    "writeFiles",
-    "deleteFiles"
-  ]
-}
-
 variable "lifecycle_rules" {
   description = "Lifecycle rules for the bucket"
   type = list(object({
@@ -40,11 +22,11 @@ variable "lifecycle_rules" {
 variable "cors_rules" {
   description = "CORS rules for the bucket"
   type = list(object({
-    cors_rule_name   = string
-    allowed_origins  = list(string)
-    allowed_headers  = list(string)
+    cors_rule_name     = string
+    allowed_origins    = list(string)
+    allowed_headers    = list(string)
     allowed_operations = list(string)
-    max_age_seconds  = number
+    max_age_seconds    = number
   }))
   default = []
 }

@@ -34,9 +34,3 @@ resource "b2_bucket" "this" {
     }
   }
 }
-
-resource "b2_application_key" "this" {
-  bucket_ids   = [b2_bucket.this.bucket_id]
-  key_name     = coalesce(var.app_key_name, var.bucket_name)
-  capabilities = var.app_key_capabilities
-}
