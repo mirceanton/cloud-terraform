@@ -29,3 +29,8 @@ output "credentials" {
   }
   sensitive = true
 }
+
+output "rotation_timestamp" {
+  description = "The timestamp when the key will next be rotated"
+  value       = time_rotating.rotation.rotation_rfc3339
+}

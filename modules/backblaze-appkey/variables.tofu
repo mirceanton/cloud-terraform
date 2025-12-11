@@ -19,3 +19,9 @@ variable "name_prefix" {
   type        = string
   default     = null
 }
+
+variable "rotation_days" {
+  description = "Number of days before the key should be rotated. If null, no automatic rotation."
+  type        = number
+  default     = null
+}

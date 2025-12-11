@@ -11,7 +11,7 @@ dependency "bucket" {
   config_path = "../.."
 
   mock_outputs = {
-    bucket_id    = "mock-bucket-id"
+    bucket_id = "mock-bucket-id"
   }
 }
 
@@ -20,7 +20,8 @@ terraform {
 }
 
 inputs = {
-  key_name     = basename(get_terragrunt_dir())
-  bucket_ids   = [dependency.bucket.outputs.bucket_id]
-  capabilities = include.capabilities.locals.readwrite_capabilities
+  key_name      = basename(get_terragrunt_dir())
+  bucket_ids    = [dependency.bucket.outputs.bucket_id]
+  capabilities  = include.capabilities.locals.readwrite_capabilities
+  rotation_days = 180
 }
