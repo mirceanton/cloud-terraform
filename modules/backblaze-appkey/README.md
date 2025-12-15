@@ -9,13 +9,13 @@ Creates a Backblaze B2 application key with automatic rotation.
 
 ## Inputs
 
-| Name            | Description                            | Type           | Required | Default |
-| --------------- | -------------------------------------- | -------------- | -------- | ------- |
-| `key_name`      | Name for the application key           | `string`       | yes      | -       |
-| `capabilities`  | Capabilities for the application key   | `list(string)` | yes      | -       |
-| `bucket_ids`    | List of bucket IDs to scope the key to | `list(string)` | no       | `[]`    |
-| `name_prefix`   | Prefix for files the key can access    | `string`       | no       | `null`  |
-| `rotation_days` | Days before the key should be rotated  | `number`       | no       | `null`  |
+| Name            | Description                           | Type           | Required | Default |
+| --------------- | ------------------------------------- | -------------- | -------- | ------- |
+| `key_name`      | Name for the application key          | `string`       | yes      | -       |
+| `capabilities`  | Capabilities for the application key  | `list(string)` | yes      | -       |
+| `bucket_id`     | Bucket ID to scope the key to         | `string`       | no       | `[]`    |
+| `name_prefix`   | Prefix for files the key can access   | `string`       | no       | `null`  |
+| `rotation_days` | Days before the key should be rotated | `number`       | no       | `null`  |
 
 ## Outputs
 

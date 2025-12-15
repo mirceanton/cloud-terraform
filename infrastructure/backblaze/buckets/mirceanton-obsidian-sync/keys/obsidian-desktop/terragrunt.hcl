@@ -13,6 +13,7 @@ dependency "bucket" {
   mock_outputs = {
     bucket_id = "mock-bucket-id"
   }
+  mock_outputs_allowed_terraform_commands = ["validate", "plan", "destroy"]
 }
 
 terraform {

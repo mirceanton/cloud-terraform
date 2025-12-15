@@ -13,6 +13,7 @@ dependency "bucket" {
   mock_outputs = {
     bucket_id = "mock-bucket-id"
   }
+  mock_outputs_allowed_terraform_commands = ["validate", "plan", "destroy"]
 }
 
 terraform {
@@ -22,6 +23,6 @@ terraform {
 inputs = {
   key_name      = basename(get_terragrunt_dir())
   bucket_ids    = [dependency.bucket.outputs.bucket_id]
-  capabilities  = include.capabilities.locals.readwrite_capabilities
   rotation_days = 180
+  capabilities  = include.capabilities.locals.readwrite_capabilities
 }

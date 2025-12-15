@@ -21,7 +21,7 @@
     "**/Flutter/ephemeral": true,
     "**/.symlinks": true,
     "**/.plugin_symlinks": true,
-    "**/.terragrunt-cache": true,
+    "**/.terragrunt-cache": true
   },
   "hide-files.files": [
     "**/.terragrunt-cache",

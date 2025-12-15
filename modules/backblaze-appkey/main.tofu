@@ -19,7 +19,7 @@ resource "time_rotating" "rotation" {
 resource "b2_application_key" "this" {
   key_name     = var.key_name
   capabilities = var.capabilities
-  bucket_ids   = length(var.bucket_ids) > 0 ? var.bucket_ids : null
+  bucket_ids   = var.bucket_ids
   name_prefix  = var.name_prefix
 
   lifecycle {

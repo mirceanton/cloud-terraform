@@ -7,6 +7,8 @@ locals {
     "listBuckets",
     "listFiles",
     "readBucketEncryption",
+    "readBucketLifecycleRules",
+    "readBucketLogging",
     "readBucketNotifications",
     "readBucketReplications",
     "readBuckets",
@@ -17,9 +19,12 @@ locals {
   writeonly_capabilities = [
     "shareFiles",
     "writeBucketEncryption",
+    "writeBucketLifecycleRules",
+    "writeBucketLogging",
     "writeBucketNotifications",
     "writeBucketReplications",
     "writeFiles",
+    "writeBuckets",
   ]
 
   # Delete capabilities

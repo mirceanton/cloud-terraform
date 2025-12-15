@@ -11,7 +11,7 @@ variable "capabilities" {
 variable "bucket_ids" {
   description = "List of bucket IDs to scope the key to. If empty, key has access to all buckets."
   type        = list(string)
-  default     = []
+  default     = null
 }
 
 variable "name_prefix" {
