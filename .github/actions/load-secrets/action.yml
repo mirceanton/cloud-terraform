@@ -1,0 +1,25 @@
+---
+name: Load Secrets from 1Password
+description: Load secrets from 1Password and export them as environment variables
+
+inputs:
+  op-connect-host:
+    description: 1Password Connect Host
+    required: true
+  op-connect-token:
+    description: 1Password Connect Token
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Configure 1Password Connect
+      uses: 1password/load-secrets-action/configure@92467eb28f72e8255933372f1e0707c567ce2259 # v4.0.0
+      with:
+        connect-host: ${{ inputs.op-connect-host }}
+        connect-token: ${{ inputs.op-connect-token }}
+
+    - name: Load secrets
+      uses: 1password/load-secrets-action@92467eb28f72e8255933372f1e0707c567ce2259 # v4.0.0
+      with: {export-env: true}
+      env: {} #! TODO
