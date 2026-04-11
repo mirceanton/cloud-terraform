@@ -31,7 +31,7 @@ resource "time_rotating" "key_rotation" {
 
 resource "b2_application_key" "this" {
   for_each     = var.keys
-  key_name     = each.key
+  key_name     = "${var.bucket_name}-${each.key}"
   capabilities = each.value.capabilities
   bucket_id    = b2_bucket.this.bucket_id
   name_prefix  = each.value.name_prefix

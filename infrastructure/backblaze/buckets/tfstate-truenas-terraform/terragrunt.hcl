@@ -26,11 +26,11 @@ inputs = {
   ]
 
   keys = {
-    "tfstate-truenas-terraform-dev" = {
+    dev = {
       capabilities  = include.capabilities.locals.full_capabilities
       rotation_days = 30
     }
-    "tfstate-truenas-terraform-ci" = {
+    ci = {
       capabilities  = include.capabilities.locals.full_capabilities
       rotation_days = 7
     }

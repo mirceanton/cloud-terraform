@@ -29,7 +29,7 @@ inputs = {
   keys = {
     # TODO: rotation_days = 30 once TrueNAS cloud sync tasks are managed in the
     # home-ops repo and consume this key from 1Password automatically.
-    "truenas-b2-backup" = {
+    main = {
       capabilities = include.capabilities.locals.full_capabilities
     }
   }

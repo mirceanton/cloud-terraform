@@ -26,11 +26,11 @@ inputs = {
   ]
 
   keys = {
-    "tfstate-mikrotik-terraform-dev" = {
+    dev = {
       capabilities  = include.capabilities.locals.full_capabilities
       rotation_days = 30
     }
-    "tfstate-mikrotik-terraform-ci" = {
+    ci = {
       capabilities  = include.capabilities.locals.full_capabilities
       rotation_days = 7
     }

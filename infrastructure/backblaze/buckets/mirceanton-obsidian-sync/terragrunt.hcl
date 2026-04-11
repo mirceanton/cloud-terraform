@@ -27,11 +27,11 @@ inputs = {
   ]
 
   keys = {
-    "obsidian-sync-mobile" = {
+    mobile = {
       capabilities  = include.capabilities.locals.full_capabilities
       rotation_days = 90
     }
-    "obsidian-sync-desktop" = {
+    desktop = {
       capabilities  = include.capabilities.locals.full_capabilities
       rotation_days = 90
     }

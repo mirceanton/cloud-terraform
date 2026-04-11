@@ -27,7 +27,7 @@ inputs = {
 
   keys = {
     #? Note: dev key is created manually
-    "tfstate-cloud-terraform-ci" = {
+    ci = {
       capabilities  = include.capabilities.locals.full_capabilities
       rotation_days = 7
     }
