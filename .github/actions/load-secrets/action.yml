@@ -30,3 +30,7 @@ runs:
         # For B2 API
         B2_APPLICATION_KEY_ID: op://cloud-terraform/Backblaze Master Key/username
         B2_APPLICATION_KEY: op://cloud-terraform/Backblaze Master Key/password
+
+        # For Migadu API
+        MIGADU_USERNAME: op://cloud-terraform/Migadu API Key/username
+        MIGADU_TOKEN: op://cloud-terraform/Migadu API Key/password
