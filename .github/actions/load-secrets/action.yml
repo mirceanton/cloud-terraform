@@ -22,4 +22,11 @@ runs:
     - name: Load secrets
       uses: 1password/load-secrets-action@92467eb28f72e8255933372f1e0707c567ce2259 # v4.0.0
       with: {export-env: true}
-      env: {} #! TODO
+      env:
+        # For state
+        AWS_ACCESS_KEY_ID: op://cloud-terraform/Backblaze Master Key/username
+        AWS_SECRET_ACCESS_KEY: op://cloud-terraform/Backblaze Master Key/password
+
+        # For B2 API
+        B2_APPLICATION_KEY_ID: op://cloud-terraform/Backblaze Master Key/username
+        B2_APPLICATION_KEY: op://cloud-terraform/Backblaze Master Key/password
