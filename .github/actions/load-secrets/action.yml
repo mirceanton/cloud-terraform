@@ -38,4 +38,4 @@ runs:
         # For Cloudflare API
         CLOUDFLARE_API_TOKEN: op://cloud-terraform/Cloudflare API Key/password
         CLOUDFLARE_ACCOUNT_ID: op://cloud-terraform/Cloudflare API Key/username
-        CLOUDFLARE_EMAIL: op://cloud-terraform/Cloudflare Zone ID/email
+        CLOUDFLARE_EMAIL: op://cloud-terraform/Cloudflare API Key/email
