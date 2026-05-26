@@ -24,8 +24,8 @@ runs:
       with: {export-env: true}
       env:
         # For state
-        AWS_ACCESS_KEY_ID: op://cloud-terraform/Backblaze Master Key/username
-        AWS_SECRET_ACCESS_KEY: op://cloud-terraform/Backblaze Master Key/password
+        AWS_ACCESS_KEY_ID: op://cloud-terraform/Backblaze B2 State/username
+        AWS_SECRET_ACCESS_KEY: op://cloud-terraform/Backblaze B2 State/password
 
         # For B2 API
         B2_APPLICATION_KEY_ID: op://cloud-terraform/Backblaze Master Key/username
