@@ -7,9 +7,7 @@ variable "policies" {
   description = "List of policies granting permissions to the token"
   type = list(object({
     effect = optional(string, "allow")
-    permission_groups = list(object({
-      id = string
-    }))
+    permission_groups = list(string)
     resources = map(string)
   }))
 }
@@ -25,14 +23,14 @@ variable "condition" {
   default = null
 }
 
-variable "expires_on" {
-  description = "RFC3339 timestamp after which the token is no longer valid"
-  type        = string
-  default     = null
+variable "rotation_days" {
+  description = "How often the token is rotated (replaced with a new value)"
+  type        = number
+  default     = 30
 }
 
-variable "not_before" {
-  description = "RFC3339 timestamp before which the token is not yet valid"
-  type        = string
-  default     = null
+variable "validity_days" {
+  description = "How many days the token remains valid from the time of its last rotation. Must be greater than rotation_days to avoid expiry gaps."
+  type        = number
+  default     = 33
 }

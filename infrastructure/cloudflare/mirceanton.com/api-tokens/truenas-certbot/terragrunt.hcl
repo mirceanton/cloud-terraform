@@ -12,9 +12,13 @@ terraform {
 inputs = {
   name = basename(get_terragrunt_dir())
 
+  # rotate the token every 5 days, but keep it valid for 7 days to allow
+  # for a smooth transition between old and new tokens
+  rotation_days = 5
+  validity_days = 7
 
   policies = [{
-    permission_groups = [{ id = "4755a26eedb94da69e1066d98aa820be" }] # DNS Write
+    permission_groups = ["DNS Write"]
     resources = {
       "com.cloudflare.api.account.zone.${dependency.zone.outputs.zone_id}" = "*"
     }

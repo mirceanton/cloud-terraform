@@ -10,10 +10,13 @@ terraform {
 inputs = {
   name = basename(get_terragrunt_dir())
 
+  # rotate the token every 5 days, but keep it valid for 7 days to allow
+  # for a smooth transition between old and new tokens
+  rotation_days = 5
+  validity_days = 7
+
   policies = [{
-    permission_groups = [{ id = "3030687196b94b638145a3953da2b699" }] # Cloudflare Pages:Edit
-    resources = {
-      "com.cloudflare.api.account.*" = "*"
-    }
+    permission_groups = ["Pages Write"]
+    resources = { "com.cloudflare.api.account.*" = "*" }
   }]
 }
