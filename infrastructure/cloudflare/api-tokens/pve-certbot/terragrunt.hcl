@@ -3,8 +3,6 @@ include "root" {
   expose = true
 }
 
-dependency "zone" { config_path = "../../" }
-
 terraform {
   source = find_in_parent_folders("modules/cloudflare-api-token")
 }
@@ -19,8 +17,6 @@ inputs = {
 
   policies = [{
     permission_groups = ["DNS Write"]
-    resources = {
-      "com.cloudflare.api.account.zone.${dependency.zone.outputs.zone_id}" = "*"
-    }
+    resources = { "com.cloudflare.api.account.zone.*" = "*" }
   }]
 }
