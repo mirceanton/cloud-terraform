@@ -1,16 +1,3 @@
-terraform {
-  required_providers {
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "5.19.1"
-    }
-    time = {
-      source  = "hashicorp/time"
-      version = "~> 0.12"
-    }
-  }
-}
-
 data "cloudflare_api_token_permission_groups_list" "all" {}
 
 locals {
@@ -25,13 +12,16 @@ locals {
 }
 
 resource "time_rotating" "expiry" {
-  rotation_days = var.rotation_days
+  for_each      = var.tokens
+  rotation_days = each.value.rotation_days
 }
 
 resource "cloudflare_api_token" "this" {
-  name = var.name
+  for_each = var.tokens
+
+  name = each.key
   policies = [
-    for policy in var.policies : {
+    for policy in each.value.policies : {
       effect = policy.effect
       permission_groups = [
         for name in policy.permission_groups : {
@@ -41,6 +31,7 @@ resource "cloudflare_api_token" "this" {
       resources = jsonencode(policy.resources)
     }
   ]
-  condition  = var.condition
-  expires_on = timeadd(time_rotating.expiry.rfc3339, "${var.validity_days * 24}h")
+
+  condition  = each.value.condition
+  expires_on = timeadd(time_rotating.expiry[each.key].rfc3339, "${each.value.validity_days * 24}h")
 }
