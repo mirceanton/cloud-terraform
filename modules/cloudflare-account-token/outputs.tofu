@@ -2,7 +2,7 @@ output "tokens" {
   description = "Map of created API token values, keyed by token name"
   sensitive   = true
   value = {
-    for k, t in cloudflare_api_token.this : k => t.value
+    for k, t in cloudflare_account_token.this : k => t.value
   }
 }
 

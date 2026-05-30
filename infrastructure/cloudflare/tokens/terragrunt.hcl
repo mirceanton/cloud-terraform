@@ -3,10 +3,12 @@ include "root" {
 }
 
 terraform {
-  source = "${get_repo_root()}/modules/cloudflare-api-token"
+  source = "${get_repo_root()}/modules/cloudflare-account-token"
 }
 
 inputs = {
+  account_id = get_env("CLOUDFLARE_ACCOUNT_ID")
+
   tokens = {
     "home-ops-cert-manager" = {
       rotation_days = 5

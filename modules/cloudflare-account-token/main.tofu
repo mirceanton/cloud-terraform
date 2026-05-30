@@ -1,8 +1,10 @@
-data "cloudflare_api_token_permission_groups_list" "all" {}
+data "cloudflare_account_api_token_permission_groups_list" "all" {
+  account_id = var.account_id
+}
 
 locals {
   _permission_groups_grouped = {
-    for pg in data.cloudflare_api_token_permission_groups_list.all.result :
+    for pg in data.cloudflare_account_api_token_permission_groups_list.all.result :
     pg.name => pg.id...
   }
   permission_groups_by_name = {
@@ -16,10 +18,12 @@ resource "time_rotating" "expiry" {
   rotation_days = each.value.rotation_days
 }
 
-resource "cloudflare_api_token" "this" {
+resource "cloudflare_account_token" "this" {
   for_each = var.tokens
 
-  name = each.key
+  account_id = var.account_id
+  name       = each.key
+
   policies = [
     for policy in each.value.policies : {
       effect = policy.effect

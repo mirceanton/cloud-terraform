@@ -1,3 +1,8 @@
+variable "account_id" {
+  description = "The Cloudflare account ID to create tokens in."
+  type        = string
+}
+
 variable "tokens" {
   description = "Map of API tokens to create. Map key becomes the token name."
   type = map(object({
