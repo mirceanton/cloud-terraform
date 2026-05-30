@@ -2,7 +2,7 @@ variable "buckets" {
   description = "Map of B2 buckets to create. Map key is the bucket name."
   type = map(object({
     bucket_type = optional(string, "allPrivate")
-    bucket_info = optional(map(string), {})
+    bucket_info = optional(map(string), { managed_by = "github.com/mirceanton/cloud-terraform" })
     lifecycle_rules = optional(list(object({
       file_name_prefix              = string
       days_from_uploading_to_hiding = optional(number)
@@ -34,6 +34,10 @@ variable "keys" {
     bucket_name   = optional(string)
     name_prefix   = optional(string)
     rotation_days = optional(number)
+    onepassword = optional(object({
+      vault = string
+      item  = string
+    }))
   }))
   default = {}
 }

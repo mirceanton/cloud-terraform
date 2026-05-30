@@ -19,9 +19,6 @@ inputs = {
   buckets = {
     "mirceanton-obsidian-sync" = {
       bucket_type = "allPrivate"
-      bucket_info = {
-        managed_by = "github.com/mirceanton/cloud-terraform"
-      }
       lifecycle_rules = [
         {
           file_name_prefix              = ""
@@ -33,9 +30,6 @@ inputs = {
 
     "mirceanton-truenas-backup" = {
       bucket_type = "allPrivate"
-      bucket_info = {
-        managed_by = "github.com/mirceanton/cloud-terraform"
-      }
       lifecycle_rules = [
         {
           file_name_prefix              = ""
@@ -47,9 +41,6 @@ inputs = {
 
     "tfstate-mikrotik-terraform" = {
       bucket_type = "allPrivate"
-      bucket_info = {
-        managed_by = "github.com/mirceanton/cloud-terraform"
-      }
       lifecycle_rules = [
         {
           file_name_prefix             = ""
@@ -60,9 +51,6 @@ inputs = {
 
     "tfstate-truenas-terraform" = {
       bucket_type = "allPrivate"
-      bucket_info = {
-        managed_by = "github.com/mirceanton/cloud-terraform"
-      }
       lifecycle_rules = [
         {
           file_name_prefix             = ""
@@ -78,6 +66,10 @@ inputs = {
     "mirceanton-truenas-backup-main" = {
       capabilities = local.full
       bucket_name  = "mirceanton-truenas-backup"
+      onepassword = {
+        vault = "truenas-terraform"
+        item  = "Backblaze Backups"
+      }
     }
 
     # =============================================================================================
@@ -87,34 +79,38 @@ inputs = {
       capabilities  = local.full
       bucket_name   = "mirceanton-obsidian-sync"
       rotation_days = 90
+      onepassword = {
+        vault = "cloud-terraform"
+        item  = "Backblaze - obsidian-sync-desktop"
+      }
     }
     "mirceanton-obsidian-sync-mobile" = {
       capabilities  = local.full
       bucket_name   = "mirceanton-obsidian-sync"
       rotation_days = 90
+      onepassword = {
+        vault = "cloud-terraform"
+        item  = "Backblaze - obsidian-sync-mobile"
+      }
     }
 
-
-    "tfstate-mikrotik-terraform-dev" = {
-      capabilities  = local.full
-      bucket_name   = "tfstate-mikrotik-terraform"
-      rotation_days = 30
-    }
-    "tfstate-mikrotik-terraform-ci" = {
+    "tfstate-mikrotik-terraform" = {
       capabilities  = local.full
       bucket_name   = "tfstate-mikrotik-terraform"
       rotation_days = 7
+      onepassword = {
+        vault = "mikrotik-terraform"
+        item  = "Backblaze B2 State"
+      }
     }
-
-    "tfstate-truenas-terraform-dev" = {
-      capabilities  = local.full
-      bucket_name   = "tfstate-truenas-terraform"
-      rotation_days = 30
-    }
-    "tfstate-truenas-terraform-ci" = {
+    "tfstate-truenas-terraform" = {
       capabilities  = local.full
       bucket_name   = "tfstate-truenas-terraform"
       rotation_days = 7
+      onepassword = {
+        vault = "truenas-terraform"
+        item  = "Backblaze B2 State"
+      }
     }
   }
 }

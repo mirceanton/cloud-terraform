@@ -19,6 +19,10 @@ variable "tokens" {
       permission_groups = list(string)
       resources         = map(string)
     }))
+    onepassword = optional(object({
+      vault = string
+      item  = string
+    }))
   }))
   default = {}
 }

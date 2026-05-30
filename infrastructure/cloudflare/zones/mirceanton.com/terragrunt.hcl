@@ -166,9 +166,9 @@ inputs = {
       comment = "Managed by github.com/mirceanton/cloud-terraform | Google Site Verification"
     },
     "discord_site_verification" = {
-      type  = "TXT"
-      name  = "_discord.com"
-      value = "\"dh=${local.discord_verification}\""
+      type    = "TXT"
+      name    = "_discord.com"
+      value   = "\"dh=${local.discord_verification}\""
       comment = "Managed by github.com/mirceanton/cloud-terraform | Discord Domain Verification"
     }
   }

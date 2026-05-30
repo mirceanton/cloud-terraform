@@ -21,6 +21,10 @@ inputs = {
         permission_groups = ["DNS Write"]
         resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
+      onepassword = {
+        vault = "kubernetes-home-ops"
+        item  = "CertManager - Cloudflare API Token"
+      }
     }
 
     "home-ops-crd-schemas" = {
@@ -30,6 +34,10 @@ inputs = {
         permission_groups = ["Pages Write"]
         resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
+      onepassword = {
+        vault = "kubernetes-home-ops"
+        item  = "CRD Schemas - Cloudflare Token"
+      }
     }
 
     "home-ops-external-dns" = {
@@ -39,6 +47,10 @@ inputs = {
         permission_groups = ["DNS Write"]
         resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
+      onepassword = {
+        vault = "kubernetes-home-ops"
+        item  = "External DNS - Cloudflare API Token"
+      }
     }
 
     "pve-certbot" = {
@@ -48,6 +60,11 @@ inputs = {
         permission_groups = ["DNS Write"]
         resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
+      # TODO
+      # onepassword = {
+      #   vault = "terraform-proxmox"
+      #   item  = "pve-certbot - Cloudflare API Token"
+      # }
     }
 
     "truenas-certbot" = {
@@ -57,6 +74,10 @@ inputs = {
         permission_groups = ["DNS Write"]
         resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
+      onepassword = {
+        vault = "truenas-terraform"
+        item  = "ACME DNS - Cloudflare Token"
+      }
     }
   }
 }
