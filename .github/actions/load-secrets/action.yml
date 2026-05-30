@@ -22,29 +22,4 @@ runs:
     - name: Load secrets
       uses: 1password/load-secrets-action@92467eb28f72e8255933372f1e0707c567ce2259 # v4.0.0
       with: {export-env: true}
-      env:
-        # For state
-        AWS_ACCESS_KEY_ID: op://cloud-terraform/Backblaze B2 State/username
-        AWS_SECRET_ACCESS_KEY: op://cloud-terraform/Backblaze B2 State/password
-
-        # For B2 API
-        B2_APPLICATION_KEY_ID: op://cloud-terraform/Backblaze Master Key/username
-        B2_APPLICATION_KEY: op://cloud-terraform/Backblaze Master Key/password
-
-        # For Migadu API
-        MIGADU_USERNAME: op://cloud-terraform/Migadu API Key/username
-        MIGADU_TOKEN: op://cloud-terraform/Migadu API Key/password
-
-        # For Cloudflare API
-        CLOUDFLARE_API_TOKEN: op://cloud-terraform/Cloudflare API Key/password
-        CLOUDFLARE_ACCOUNT_ID: op://cloud-terraform/Cloudflare API Key/username
-        CLOUDFLARE_EMAIL: op://cloud-terraform/Cloudflare API Key/email
-
-        # For Cloudflare DNS
-        DISCORD_VERIFICATION: op://cloud-terraform/DISCORD_VERIFICATION/password
-        GOOGLE_VERIFICATION_PRIMARY: op://cloud-terraform/GOOGLE_VERIFICATION_PRIMARY/password
-        MIGADU_VERIFICATION_PRIMARY: op://cloud-terraform/MIGADU_VERIFICATION_PRIMARY/password
-        GITHUB_PAGES_VERIFICATION_LINKS: op://cloud-terraform/GITHUB_PAGES_VERIFICATION_LINKS/password
-        GITHUB_PAGES_VERIFICATION_MAIN: op://cloud-terraform/GITHUB_PAGES_VERIFICATION_MAIN/password
-        GOOGLE_VERIFICATION_SECONDARY: op://cloud-terraform/GOOGLE_VERIFICATION_SECONDARY/password
-        MIGADU_VERIFICATION_SECONDARY: op://cloud-terraform/MIGADU_VERIFICATION_SECONDARY/password
+      env: { OP_ENV_FILE: ".env.1pass" }
