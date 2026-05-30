@@ -6,8 +6,12 @@ terraform {
   source = "${get_repo_root()}/modules/cloudflare-account-token"
 }
 
-inputs = {
+locals {
   account_id = get_env("CLOUDFLARE_ACCOUNT_ID")
+}
+
+inputs = {
+  account_id = local.account_id
 
   tokens = {
     "home-ops-cert-manager" = {
@@ -15,7 +19,7 @@ inputs = {
       validity_days = 7
       policies = [{
         permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.zone.*" = "*" }
+        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
     }
 
@@ -24,7 +28,7 @@ inputs = {
       validity_days = 7
       policies = [{
         permission_groups = ["Pages Write"]
-        resources         = { "com.cloudflare.api.account.*" = "*" }
+        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
     }
 
@@ -33,7 +37,7 @@ inputs = {
       validity_days = 7
       policies = [{
         permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.zone.*" = "*" }
+        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
     }
 
@@ -42,7 +46,7 @@ inputs = {
       validity_days = 7
       policies = [{
         permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.zone.*" = "*" }
+        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
     }
 
@@ -51,7 +55,7 @@ inputs = {
       validity_days = 7
       policies = [{
         permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.zone.*" = "*" }
+        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
       }]
     }
   }
