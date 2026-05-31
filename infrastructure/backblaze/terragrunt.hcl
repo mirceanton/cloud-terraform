@@ -66,6 +66,7 @@ inputs = {
     "mirceanton-truenas-backup-main" = {
       capabilities = local.full
       bucket_name  = "mirceanton-truenas-backup"
+      rotation_days = 180
       onepassword = {
         vault = "truenas-terraform"
         item  = "Backblaze Backups"
