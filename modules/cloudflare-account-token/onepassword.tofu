@@ -15,7 +15,7 @@ resource "onepassword_item" "token" {
   title    = each.value.onepassword.item
   category = "password"
 
-  username = ""
+  username = var.account_id
   password = cloudflare_account_token.this[each.key].value
 
   note_value = "This item is managed by github.com/mirceanton/cloud-terraform. Do not edit it manually."
