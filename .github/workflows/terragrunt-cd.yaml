@@ -11,6 +11,7 @@ on:
     paths:
       - root.hcl
       - infrastructure/**
+      - modules/**
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

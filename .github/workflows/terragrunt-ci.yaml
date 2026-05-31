@@ -12,6 +12,7 @@ on:
     paths:
       - root.hcl
       - infrastructure/**
+      - modules/**
 
 jobs:
   terragrunt-plan:
