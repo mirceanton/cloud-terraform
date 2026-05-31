@@ -13,7 +13,7 @@ resource "onepassword_item" "token" {
 
   vault    = data.onepassword_vault.this[each.value.onepassword.vault].uuid
   title    = each.value.onepassword.item
-  category = "password"
+  category = "login"
 
   username = var.account_id
   password = cloudflare_account_token.this[each.key].value
