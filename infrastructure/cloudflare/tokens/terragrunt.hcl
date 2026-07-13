@@ -40,19 +40,6 @@ inputs = {
       }
     }
 
-    "home-ops-external-dns" = {
-      rotation_days = 5
-      validity_days = 7
-      policies = [{
-        permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
-      }]
-      onepassword = {
-        vault = "kubernetes-home-ops"
-        item  = "External DNS - Cloudflare API Token"
-      }
-    }
-
     "pve-certbot" = {
       rotation_days = 5
       validity_days = 7
