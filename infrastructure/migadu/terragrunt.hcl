@@ -21,6 +21,11 @@ inputs = {
       aliases = ["me", "personal", "business", "contact"]
     }
 
+    "homelab" = {
+      name    = "HomeLab"
+      aliases = ["affine"]
+    }
+
     "spam" = {
       name     = "Spam"
       may_send = false
