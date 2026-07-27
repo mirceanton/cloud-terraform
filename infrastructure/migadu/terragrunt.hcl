@@ -20,21 +20,37 @@ inputs = {
     # Personal Accounts
     # =============================================================================================
     "mircea" = {
-      name    = "Personal"
-      aliases = ["me", "personal", "business", "contact"]
+      name             = "Personal"
+      aliases          = ["me", "personal", "business", "contact"]
       managed_password = { rotation_days = 365 }
     }
     "spam" = {
-      name     = "Spam"
-      may_send = false
-      aliases  = ["junk"]
+      name             = "Spam"
+      may_send         = false
+      aliases          = ["junk"]
       managed_password = { rotation_days = 3650 }
     }
 
     # =============================================================================================
     # Bot Accounts
     # =============================================================================================
-    "affine.bot" = { name = "Affine" }
-    "paperless.bot" = { name = "Paperless" }
+    "affine.bot" = {
+      name = "Affine",
+      managed_password = {
+        onepassword = {
+          vault = "kubernetes-home-ops"
+          item  = "Affine - SMTP"
+        }
+      }
+    }
+    "paperless.bot" = {
+      name = "Paperless",
+      managed_password = {
+        onepassword = {
+          vault = "kubernetes-home-ops"
+          item  = "Paperless - SMTP"
+        }
+      }
+    }
   }
 }
