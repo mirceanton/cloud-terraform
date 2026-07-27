@@ -8,6 +8,8 @@ locals {
       }
     }
   ]...)
+
+  managed_password_mailboxes = { for k, v in var.mailboxes : k => v if v.managed_password != null }
 }
 
 resource "migadu_mailbox" "mailbox" {
@@ -23,6 +25,8 @@ resource "migadu_mailbox" "mailbox" {
   may_access_imap         = each.value.may_access_imap
   may_access_pop3         = each.value.may_access_pop3
   may_access_manage_sieve = each.value.may_access_manage_sieve
+  password_method         = each.value.managed_password != null ? "password" : "invitation"
+  password                = each.value.managed_password != null ? random_password.mailbox[each.key].result : null
   password_recovery_email = var.password_recovery_email
 }
 

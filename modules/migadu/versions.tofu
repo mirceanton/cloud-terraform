@@ -4,5 +4,17 @@ terraform {
       source  = "metio/migadu"
       version = "2026.7.23"
     }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.9.0"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "0.14.0"
+    }
+    onepassword = {
+      source  = "1Password/onepassword"
+      version = "3.3.1"
+    }
   }
 }
