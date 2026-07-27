@@ -35,7 +35,8 @@ inputs = {
     # Bot Accounts
     # =============================================================================================
     "affine.bot" = {
-      name = "Affine",
+      name    = "Affine",
+      aliases = ["affine.mcp"]
       managed_password = {
         onepassword = {
           vault = "kubernetes-home-ops"
