@@ -20,6 +20,17 @@ variable "mailboxes" {
     spam_action             = optional(string, "folder")
     spam_aggressiveness     = optional(string, "default")
     aliases                 = optional(list(string), [])
+
+    # Terraform generates the mailbox password, rotates it every
+    # rotation_days (set e.g. 3650 to effectively disable rotation), and
+    # pushes it to the given 1Password item.
+    managed_password = optional(object({
+      rotation_days = optional(number, 30)
+      onepassword = optional(object({
+        vault = optional(string, "cloud-terraform")
+        item  = optional(string) # defaults to "Migadu - <title-cased name>"
+      }), {})
+    }), {})
   }))
   default = {}
 }

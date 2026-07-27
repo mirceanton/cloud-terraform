@@ -16,20 +16,25 @@ inputs = {
   password_recovery_email = local.recovery_email
 
   mailboxes = {
+    # =============================================================================================
+    # Personal Accounts
+    # =============================================================================================
     "mircea" = {
       name    = "Personal"
       aliases = ["me", "personal", "business", "contact"]
+      managed_password = { rotation_days = 365 }
     }
-
-    "homelab" = {
-      name    = "HomeLab"
-      aliases = ["affine"]
-    }
-
     "spam" = {
       name     = "Spam"
       may_send = false
       aliases  = ["junk"]
+      managed_password = { rotation_days = 3650 }
     }
+
+    # =============================================================================================
+    # Bot Accounts
+    # =============================================================================================
+    "affine.bot" = { name = "Affine" }
+    "paperless.bot" = { name = "Paperless" }
   }
 }
