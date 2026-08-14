@@ -68,8 +68,8 @@ inputs = {
     }
 
     "truenas-zipline-tunnel" = {
-      rotation_days = 5
-      validity_days = 7
+      rotation_days = 31
+      validity_days = 33
       policies = [{
         permission_groups = ["Cloudflare Tunnel Write", "DNS Write"]
         resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
