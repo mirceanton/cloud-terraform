@@ -67,19 +67,6 @@ inputs = {
       }
     }
 
-    "truenas-zipline-tunnel" = {
-      rotation_days = 31
-      validity_days = 33
-      policies = [{
-        permission_groups = ["Cloudflare Tunnel Write", "DNS Write"]
-        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
-      }]
-      onepassword = {
-        vault = "truenas-terraform"
-        item  = "Zipline Cloudflare Tunnel Token"
-      }
-    }
-
     "mikrotik-terraform-dns" = {
       rotation_days = 5
       validity_days = 7
