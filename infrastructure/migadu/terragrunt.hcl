@@ -55,7 +55,6 @@ inputs = {
     }
     "ldap.bot" = {
       name    = "LDAP",
-      aliases = ["ldap.bot"]
       may_receive = false
       may_send    = true
       managed_password = {
