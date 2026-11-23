@@ -27,6 +27,32 @@ inputs = {
       }
     }
 
+    "public-cert-manager" = {
+      rotation_days = 5
+      validity_days = 7
+      policies = [{
+        permission_groups = ["DNS Write"]
+        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
+      }]
+      onepassword = {
+        vault = "kubernetes-public"
+        item  = "CertManager - Cloudflare API Token"
+      }
+    }
+
+    "public-external-dns" = {
+      rotation_days = 5
+      validity_days = 7
+      policies = [{
+        permission_groups = ["DNS Write", "Zone Read"]
+        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
+      }]
+      onepassword = {
+        vault = "kubernetes-public"
+        item  = "ExternalDNS - Cloudflare API Token"
+      }
+    }
+
     "home-ops-crd-schemas" = {
       rotation_days = 5
       validity_days = 7
