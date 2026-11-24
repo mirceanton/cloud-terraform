@@ -6,6 +6,20 @@ terraform {
   source = "${get_repo_root()}/modules/cloudflare-account-token"
 }
 
+dependency "mirceanton_com" {
+  config_path = "../zones/mirceanton.com"
+
+  mock_outputs                            = { zone_id = "00000000000000000000000000000000" }
+  mock_outputs_allowed_terraform_commands = ["init", "validate", "plan"]
+}
+
+dependency "mirceaanton_com" {
+  config_path = "../zones/mirceaanton.com"
+
+  mock_outputs                            = { zone_id = "11111111111111111111111111111111" }
+  mock_outputs_allowed_terraform_commands = ["init", "validate", "plan"]
+}
+
 locals {
   account_id = get_env("CLOUDFLARE_ACCOUNT_ID")
 }
@@ -18,8 +32,8 @@ inputs = {
       rotation_days = 5
       validity_days = 7
       policies = [{
-        permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
+        permission_groups = ["DNS Write", "Zone Read"]
+        resources         = { "com.cloudflare.api.account.zone.${dependency.mirceanton_com.outputs.zone_id}" = "*" }
       }]
       onepassword = {
         vault = "kubernetes-home-ops"
@@ -31,8 +45,8 @@ inputs = {
       rotation_days = 5
       validity_days = 7
       policies = [{
-        permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
+        permission_groups = ["DNS Write", "Zone Read"]
+        resources         = { "com.cloudflare.api.account.zone.${dependency.mirceanton_com.outputs.zone_id}" = "*" }
       }]
       onepassword = {
         vault = "kubernetes-public"
@@ -45,7 +59,7 @@ inputs = {
       validity_days = 7
       policies = [{
         permission_groups = ["DNS Write", "Zone Read"]
-        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
+        resources         = { "com.cloudflare.api.account.zone.${dependency.mirceanton_com.outputs.zone_id}" = "*" }
       }]
       onepassword = {
         vault = "kubernetes-public"
@@ -70,8 +84,8 @@ inputs = {
       rotation_days = 5
       validity_days = 7
       policies = [{
-        permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
+        permission_groups = ["DNS Write", "Zone Read"]
+        resources         = { "com.cloudflare.api.account.zone.${dependency.mirceanton_com.outputs.zone_id}" = "*" }
       }]
       # TODO
       # onepassword = {
@@ -84,8 +98,8 @@ inputs = {
       rotation_days = 5
       validity_days = 7
       policies = [{
-        permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
+        permission_groups = ["DNS Write", "Zone Read"]
+        resources         = { "com.cloudflare.api.account.zone.${dependency.mirceanton_com.outputs.zone_id}" = "*" }
       }]
       onepassword = {
         vault = "truenas-terraform"
@@ -97,8 +111,11 @@ inputs = {
       rotation_days = 5
       validity_days = 7
       policies = [{
-        permission_groups = ["DNS Write"]
-        resources         = { "com.cloudflare.api.account.${local.account_id}" = "*" }
+        permission_groups = ["DNS Write", "Zone Read"]
+        resources = {
+          "com.cloudflare.api.account.zone.${dependency.mirceanton_com.outputs.zone_id}"  = "*"
+          "com.cloudflare.api.account.zone.${dependency.mirceaanton_com.outputs.zone_id}" = "*"
+        }
       }]
       onepassword = {
         vault = "mikrotik-terraform"
