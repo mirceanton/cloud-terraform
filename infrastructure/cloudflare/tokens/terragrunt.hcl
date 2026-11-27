@@ -80,19 +80,6 @@ inputs = {
       }
     }
 
-    "utils-external-dns" = {
-      rotation_days = 5
-      validity_days = 7
-      policies = [{
-        permission_groups = ["DNS Write", "Zone Read"]
-        resources         = { "com.cloudflare.api.account.zone.${dependency.mirceanton_com.outputs.zone_id}" = "*" }
-      }]
-      onepassword = {
-        vault = "kubernetes-utils"
-        item  = "ExternalDNS - Cloudflare API Token"
-      }
-    }
-
     "home-ops-crd-schemas" = {
       rotation_days = 5
       validity_days = 7
